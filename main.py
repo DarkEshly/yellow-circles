@@ -3,12 +3,13 @@ from PyQt5.QtGui import QPainter, QColor
 from PyQt5.QtWidgets import QApplication, QMainWindow, QInputDialog, QPushButton
 from random import randrange
 import sys
+from UI import Ui_MainWindow
 
 
-class MyWidget(QMainWindow):
+class MyWidget(QMainWindow, Ui_MainWindow):
     def __init__(self):
-        super(MyWidget, self).__init__()
-        uic.loadUi('UI.ui', self)
+        super().__init__()
+        self.setupUi(self)
         self.button.clicked.connect(self.paint)
         self.do_paint = False
 
@@ -24,8 +25,9 @@ class MyWidget(QMainWindow):
             qp.end()
 
     def draw_circle(self, qp):
-        qp.setPen(QColor(255, 244, 0))
-        qp.setBrush(QColor(255, 244, 0))
+        color = QColor(randrange(0, 256), randrange(0, 256), randrange(0, 256))
+        qp.setPen(color)
+        qp.setBrush(color)
         for i in range(3):
             radius = randrange(0, 50)
             x = randrange(0 + radius, self.x() - radius)
