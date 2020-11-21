@@ -35,9 +35,9 @@ class MyWidget(QMainWindow, Ui_MainWindow):
             while (self.button.x() <= x + radius <= self.button.size().width() + self.button.x()) or \
                     (self.button.x() <= x - radius <= self.button.size().width() + self.button.x()) or \
                     (self.button.x() <= x <= self.button.size().width() + self.button.x()) or \
-                    (self.button.x() <= y + radius <= self.button.size().height() + self.button.x()) or \
-                    (self.button.x() <= y - radius <= self.button.size().height() + self.button.x()) or \
-                    (self.button.x() <= y <= self.button.size().height() + self.button.x()):
+                    (self.button.y() <= y + radius <= self.button.size().height() + self.button.y()) or \
+                    (self.button.y() <= y - radius <= self.button.size().height() + self.button.y()) or \
+                    (self.button.y() <= y <= self.button.size().height() + self.button.y()):
                 radius = randrange(0, 50)
                 x = randrange(0 + radius, self.x() - radius)
                 y = randrange(0 + radius, self.y() - radius)
